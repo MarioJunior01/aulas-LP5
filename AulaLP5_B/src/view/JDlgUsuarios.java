@@ -82,6 +82,12 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
         jLabel5.setText("Data de Nascimento");
 
+        jFmtDataDeNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFmtDataDeNascimentoActionPerformed(evt);
+            }
+        });
+
         jLabel6.setText("Senha");
 
         jLabel7.setText("Nível");
@@ -278,8 +284,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-        // TODO add your handling code here: 
-
+     Util.mensagem("Não implementado ");
 
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
@@ -290,7 +295,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
                 jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido,
-                jFmtCpf);
+                jFmtCpf,jPwfSenha,jFmtDataDeNascimento,jChbAtivo,jCboNivel);
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
@@ -302,6 +307,10 @@ public class JDlgUsuarios extends javax.swing.JDialog {
     private void jCboNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboNivelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCboNivelActionPerformed
+
+    private void jFmtDataDeNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtDataDeNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFmtDataDeNascimentoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,9 +1,11 @@
 package tools;
 
 import java.util.Date;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /*
@@ -24,7 +26,8 @@ public class Util {
 
     public static void limpar(JComponent... componentes) {
         for (int i = 0; i < componentes.length; i++) {
-            //instanceofif
+            //instanceof
+            
 
             if (componentes[i] instanceof JTextField) {
                 ((JTextField) componentes[i]).setText("");
@@ -32,6 +35,15 @@ public class Util {
             if (componentes[i] instanceof JComboBox) {
                 ((JComboBox) componentes[i]).setSelectedIndex(-1);
             }
+            if (componentes[i] instanceof JPasswordField){
+                ((JPasswordField) componentes[i]).setText("");
+            }
+              if (componentes[i] instanceof JCheckBox){
+                ((JCheckBox) componentes[i]).setSelected(false);
+            }
+
+            
+                        
         }
     }
 
@@ -65,14 +77,23 @@ public class Util {
 
     }
 
-    public static String doubleToStr(String num) {
-        return "";
+    public static String doubleToStr(double  num) {
+        
+       StringBuilder  numSbuilde = new  StringBuilder();
+         numSbuilde.append("");
+          return numSbuilde.toString();
 
     }
 
     public static String dateToStr(Date data) {
 
-        return null;
+        return ""; 
+		
+    }
+     public static Date strToDate(Date data) {
+
+        return null; 
+		
     }
 }
 
