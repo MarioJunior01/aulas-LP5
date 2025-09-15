@@ -5,11 +5,19 @@
  */
 package DAO;
 
+import org.hibernate.Session;
+
 /**
  *
  * @author u04584043221
  */
 public abstract class AbstractDAO {
+
+    Session session;
+
+    public AbstractDAO() {
+    
+    }
 
     public abstract void insert(Object object);
 
@@ -18,7 +26,7 @@ public abstract class AbstractDAO {
     public abstract void delete(Object object);
 
     public abstract void list(int codigo);
-   
+
     public abstract void listAl();
 
 }
