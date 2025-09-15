@@ -27,8 +27,8 @@ public abstract class AbstractDAO {
 
     public abstract void delete(Object object);
 
-    public abstract void list(int codigo);
+    public abstract Object  list(int codigo); 
 
-    public abstract void listAl();
+    public abstract Object listAll();
 
 }
