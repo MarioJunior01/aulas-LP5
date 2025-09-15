@@ -10,11 +10,15 @@ package DAO;
  * @author u04584043221
  */
 public abstract class AbstractDAO {
-   public abstract void insert(Object object);
-   public abstract void update(Object object);
-   public abstract void delete(Object object);
+
+    public abstract void insert(Object object);
+
+    public abstract void update(Object object);
+
+    public abstract void delete(Object object);
+
+    public abstract void list(int codigo);
    
-   
-   
-   
+    public abstract void listAl();
+
 }
