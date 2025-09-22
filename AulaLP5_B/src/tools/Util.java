@@ -52,14 +52,9 @@ public class Util {
     }
 
     public static boolean perguntar(String cad) {
-        int resposta = JOptionPane.showConfirmDialog(null, cad);
-        System.out.println(resposta);
-        if (resposta != 0) {
-
-            return true;
-        } else {
-            return false;
-        }
+        JOptionPane.showConfirmDialog(null, cad);
+        return true;
+       
     }
 
     public static int srToInt(String num) {
@@ -73,15 +68,14 @@ public class Util {
     }
 
     public static double strToDouble(String num) {
-        return 0;
+        return Double.parseDouble(num);
 
     }
 
     public static String doubleToStr(double  num) {
         
-       StringBuilder  numSbuilde = new  StringBuilder();
-         numSbuilde.append("");
-          return numSbuilde.toString();
+       
+         return  Double.toString(num);
 
     }
 

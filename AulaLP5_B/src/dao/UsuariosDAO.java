@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package dao;
 
-import bean.Produtos;
 import bean.Usuarios;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -15,14 +14,14 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author u04584043221
  */
-public class ProdutosDAO extends AbstractDAO {
+public class UsuariosDAO extends AbstractDAO {
 
     @Override
     public void insert(Object object) {
 
         session.beginTransaction();
         session.save(object);
-        session.getTransaction().commit();
+        session.getTransaction().begin();
     }
 
     @Override
@@ -31,7 +30,7 @@ public class ProdutosDAO extends AbstractDAO {
         session.update(object);
         session.flush();
         session.clear();
-        session.getTransaction().commit();
+        session.getTransaction().begin();
     }
 
     @Override
@@ -40,21 +39,24 @@ public class ProdutosDAO extends AbstractDAO {
         session.flush();
         session.clear();
         session.delete(object);
-        session.getTransaction().commit();
+        session.getTransaction().begin();
     }
 
   
+    @Override
     public Object list(int codigo) {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Produtos.class);
-        criteria.add(Restrictions.eq("idProdutos",codigo));
+        Criteria criteria = session.createCriteria(Usuarios.class);
+        criteria.add(Restrictions.eq("idUsuarios",codigo));
         List lista = criteria.list();
-        session.getTransaction().commit();
+        session.getTransaction().begin();
+
 
         return lista;
 
     }
 
+    
     @Override
     public Object  listAll() {
         session.beginTransaction();
@@ -64,4 +66,10 @@ public class ProdutosDAO extends AbstractDAO {
 
         return lista;
     }
+    public static void main(String[] args) {
+        UsuariosDAO usuariosDAO = new  UsuariosDAO();
+        usuariosDAO.listAll();
+        System.out.println("Deu certo");
+    }
+
 }
