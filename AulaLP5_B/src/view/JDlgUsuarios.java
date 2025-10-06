@@ -16,7 +16,8 @@ import tools.Util;
  * @author u10916731103
  */
 public class JDlgUsuarios extends javax.swing.JDialog {
-   private  boolean incluir;
+
+    private boolean incluir;
 
     public JDlgUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -43,10 +44,8 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         } else {
             usuarios.setAtivo("N");
         }
-        
-        // usuarios.setDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
-        
 
+        // usuarios.setDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
         return usuarios;
     }
 
@@ -287,7 +286,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        incluir= true;
+        incluir = true;
         Util.habilitar(true, jTxtCodigo, jTxtNome, jTxtApelido,
                 jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
                 jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
@@ -295,26 +294,30 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido,
                 jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
                 jCboNivel, jChbAtivo);
+        jTxtCodigo.grabFocus();
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        incluir= false;
+        incluir = false;
         Util.habilitar(true, jTxtNome, jTxtApelido,
                 jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
                 jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+
+        jTxtNome.grabFocus();
 
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
         if (Util.perguntar("Deseja excluir o registro?") == true) {
-            UsuariosDAO usuariosDAO= new UsuariosDAO();
+            UsuariosDAO usuariosDAO = new UsuariosDAO();
             usuariosDAO.delete(viewBean());
 
         }
-        { Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido,
+        {
+            Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido,
                     jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
                     jCboNivel, jChbAtivo);
         }
@@ -325,13 +328,12 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-       UsuariosDAO usuariosDAO = new UsuariosDAO();
-       if(incluir== true){
-       usuariosDAO.insert(viewBean());
-       }
-       else{
-        usuariosDAO.update(viewBean());
-       }
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        if (incluir == true) {
+            usuariosDAO.insert(viewBean());
+        } else {
+            usuariosDAO.update(viewBean());
+        }
         Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido,
                 jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
                 jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
@@ -340,15 +342,15 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido,
                 jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
                 jCboNivel, jChbAtivo);
-        
 
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-       JDlgUsuariosPesquisar jdlgUsuariosPesquisar = new JDlgUsuariosPesquisar(null,true);
-       jdlgUsuariosPesquisar.setTelaPai(this);
-       jdlgUsuariosPesquisar.setVisible(true);
+        JDlgUsuariosPesquisar jdlgUsuariosPesquisar = new JDlgUsuariosPesquisar(null, true);
+        jdlgUsuariosPesquisar.setTelaPai(this);
+        jdlgUsuariosPesquisar.setVisible(true);
+        
 
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
