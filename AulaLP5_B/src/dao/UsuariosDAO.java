@@ -21,7 +21,7 @@ public class UsuariosDAO extends AbstractDAO {
 
         session.beginTransaction();
         session.save(object);
-        session.getTransaction().begin();
+        session.getTransaction().commit();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class UsuariosDAO extends AbstractDAO {
         session.update(object);
         session.flush();
         session.clear();
-        session.getTransaction().begin();
+        session.getTransaction().commit();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class UsuariosDAO extends AbstractDAO {
         session.flush();
         session.clear();
         session.delete(object);
-        session.getTransaction().begin();
+        session.getTransaction().commit();
     }
 
   
@@ -49,7 +49,7 @@ public class UsuariosDAO extends AbstractDAO {
         Criteria criteria = session.createCriteria(Usuarios.class);
         criteria.add(Restrictions.eq("idUsuarios",codigo));
         List lista = criteria.list();
-        session.getTransaction().begin();
+        session.getTransaction().commit();
 
 
         return lista;

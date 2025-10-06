@@ -102,6 +102,7 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
         // TODO add your handling code here:
         Usuarios usuarios =  controllerUsuarios.getBean( jTable1.getSelectedRow() );
         jDlgUsuarios.beanView(usuarios);
+
         this.setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 
@@ -154,3 +155,4 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
+

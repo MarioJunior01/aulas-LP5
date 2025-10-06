@@ -326,7 +326,6 @@ public class JDlgUsuarios extends javax.swing.JDialog {
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
        UsuariosDAO usuariosDAO = new UsuariosDAO();
-       usuariosDAO.insert(viewBean()); // retorna um objeto de usuarios.
        if(incluir== true){
        usuariosDAO.insert(viewBean());
        }
