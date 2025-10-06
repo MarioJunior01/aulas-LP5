@@ -1,5 +1,7 @@
 package tools;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -27,7 +29,6 @@ public class Util {
     public static void limpar(JComponent... componentes) {
         for (int i = 0; i < componentes.length; i++) {
             //instanceof
-            
 
             if (componentes[i] instanceof JTextField) {
                 ((JTextField) componentes[i]).setText("");
@@ -35,15 +36,13 @@ public class Util {
             if (componentes[i] instanceof JComboBox) {
                 ((JComboBox) componentes[i]).setSelectedIndex(-1);
             }
-            if (componentes[i] instanceof JPasswordField){
+            if (componentes[i] instanceof JPasswordField) {
                 ((JPasswordField) componentes[i]).setText("");
             }
-              if (componentes[i] instanceof JCheckBox){
+            if (componentes[i] instanceof JCheckBox) {
                 ((JCheckBox) componentes[i]).setSelected(false);
             }
 
-            
-                        
         }
     }
 
@@ -54,7 +53,7 @@ public class Util {
     public static boolean perguntar(String cad) {
         JOptionPane.showConfirmDialog(null, cad);
         return true;
-       
+
     }
 
     public static int srToInt(String num) {
@@ -72,25 +71,26 @@ public class Util {
 
     }
 
-    public static String doubleToStr(double  num) {
-        
-       
-         return  Double.toString(num);
+    public static String doubleToStr(double num) {
+
+        return Double.toString(num);
 
     }
 
     public static String dateToStr(Date data) {
 
-        return ""; 
-		
-    }
-     public static Date strToDate(Date data) {
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        String dataStr = formato.format(data);
 
-        return null; 
-		
+        return dataStr;
+
+    }
+
+    public static Date strToDate(String data) throws ParseException{
+
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        return formato.parse(data);
+
     }
 }
 
-//primeiro commit - Pacotes tools e view. Util.java finalizado.
-// segundo commit - Tela principal e telas dos cadastros finalizados
-// terceiro commit - Telas de cadastros usando o Util.java
