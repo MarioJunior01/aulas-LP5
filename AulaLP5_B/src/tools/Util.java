@@ -46,8 +46,10 @@ public class Util {
         }
     }
 
-    public static void mensagem(String cad) {
-        JOptionPane.showMessageDialog(null, cad);
+    public static boolean mensagem(String cad) {
+        int resposta = JOptionPane.showConfirmDialog(null, cad, "Perguntar", JOptionPane.YES_NO_OPTION);
+
+        return resposta== JOptionPane.YES_OPTION;
     }
 
     public static boolean perguntar(String cad) {
@@ -86,11 +88,10 @@ public class Util {
 
     }
 
-    public static Date strToDate(String data) throws ParseException{
+    public static Date strToDate(String data) throws ParseException {
 
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         return formato.parse(data);
 
     }
 }
-
