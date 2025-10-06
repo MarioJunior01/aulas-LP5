@@ -9,6 +9,8 @@ import dao.ClientesDAO;
 import java.util.List;
 import tools.Util;
 import bean.Clientes;
+import bean.Pedidos;
+import bean.Vendedor;
 
 /**
  *
@@ -26,13 +28,24 @@ public class JDlgPedidos extends javax.swing.JDialog {
         Util.habilitar(false, jTxtCodigo, jFmtData, jCboClientes, jCboVendedor, jTxtTotal,
                 jBtnConfirmar, jBtnCancelar, jBtnIncluirProd, jBtnAlterarProd, jBtnExcluirProd);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-
+        
         ClientesDAO clientesDAO = new ClientesDAO();
         List lista = (List) clientesDAO.listAll();
         for (int i = 0; i < lista.size(); i++) {
             jCboClientes.addItem((Clientes) lista.get(i));
-
+            
         }
+    }
+
+    public Pedidos viewBean() {
+        Pedidos pedidos = new Pedidos();
+        pedidos.setIdpedidos(Util.srToInt((jTxtCodigo.getText())));
+        pedidos.setTotal(Util.strToDouble(jTxtTotal.getText()));
+        pedidos.setClientes((Clientes) jCboClientes.getSelectedItem());
+        pedidos.setVendedor((Vendedor) jCboVendedor.getSelectedItem());
+        
+        
+        return pedidos;
     }
 
     /**
@@ -332,7 +345,7 @@ public class JDlgPedidos extends javax.swing.JDialog {
     private void jBtnExcluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirProdActionPerformed
         // TODO add your handling code here:
         if (Util.perguntar("Deseja excluir o produto ?") == true) {
-
+            
         }
     }//GEN-LAST:event_jBtnExcluirProdActionPerformed
 
