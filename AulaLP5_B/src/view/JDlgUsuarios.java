@@ -45,7 +45,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
             usuarios.setAtivo("N");
         }
 
-        // usuarios.setDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
+        usuarios.setDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
         return usuarios;
     }
 
