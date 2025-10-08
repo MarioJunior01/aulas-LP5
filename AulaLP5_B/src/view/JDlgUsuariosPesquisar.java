@@ -1,4 +1,4 @@
-    /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
@@ -17,10 +17,9 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
     /**
      * Creates new form JDlgUsuariosPesquisar
      */
-    
     private JDlgUsuarios jDlgUsuarios;
     ControllerUsuarios controllerUsuarios;
-    
+
     public JDlgUsuariosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -33,10 +32,10 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
         jTable1.setModel(controllerUsuarios);
     }
 
-    public void setTelaPai( JDlgUsuarios jDlgUsuarios) {;
+    public void setTelaPai(JDlgUsuarios jDlgUsuarios) {
         this.jDlgUsuarios = jDlgUsuarios;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,7 +99,8 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-       
+        Usuarios usuarios = controllerUsuarios.getBean(jTable1.getSelectedRow());
+        jDlgUsuarios.beanView(usuarios);
         this.setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 
@@ -153,4 +153,3 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
-
